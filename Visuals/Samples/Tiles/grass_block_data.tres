@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://de1d3ndtx53jx"]
+
+[ext_resource type="Material" path="res://CommonsGodot/Visuals/Samples/Materials/grass.tres" id="1_elc60"]
+[ext_resource type="Script" path="res://CommonsGodot/Visuals/Samples/TileData.cs" id="2_xfv36"]
+
+[resource]
+script = ExtResource("2_xfv36")
+Id = "grass"
+Name = "Grass"
+Material = ExtResource("1_elc60")

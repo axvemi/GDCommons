@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://ba7wekydo6ib1" path="res://CommonsGodot/Visuals/Samples/Materials/grass_block_top.png" id="1_n5qea"]
+
+[resource]
+albedo_texture = ExtResource("1_n5qea")
+texture_filter = 0

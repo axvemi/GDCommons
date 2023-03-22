@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b5efhd40103hx"]
+
+[ext_resource type="Material" path="res://CommonsGodot/Visuals/Samples/Materials/bedrock.tres" id="1_rpshf"]
+[ext_resource type="Script" path="res://CommonsGodot/Visuals/Samples/TileData.cs" id="2_k3l4x"]
+
+[resource]
+script = ExtResource("2_k3l4x")
+Id = "bedrock"
+Name = "Bedrock"
+Material = ExtResource("1_rpshf")
