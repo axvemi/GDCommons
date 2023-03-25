@@ -12,9 +12,13 @@ const internal_speed : float = 0.002
 var rng = RandomNumberGenerator.new()
 var gravity_2d : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var char_velocity_dictionary : Dictionary
+	
 
 ##Take in acount that the change applies to each letter. If we wanted the whole word, update it ONCE per loop
 func _process_custom_fx(char_fx):
+	if(char_fx.elapsed_time == 0):
+		char_velocity_dictionary.clear()
+		
 	#Init the velocity and direction of every character
 	if(!char_velocity_dictionary.has(char_fx.relative_index)):
 		var x_direction : int = -1 if rng.randi_range(0, 1) == 0 else 1
