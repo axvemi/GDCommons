@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Numerics;
+using Axvemi.Commons.Spatial;
 
 namespace Axvemi.Commons.Meshes.Samples;
 
