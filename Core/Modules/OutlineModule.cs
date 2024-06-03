@@ -5,8 +5,8 @@ namespace Axvemi.Commons.Modules;
 public partial class OutlineModule<T> : Node, IModule<T>
 {
     public ModuleController<T> ModuleController { get; set; }
-    public float Thickness { get; protected set; }
-    public Color Color { get; protected set; }
+    public float Thickness { get; set; }
+    public Color Color { get; set; }
 
     protected ShaderMaterial ShaderMaterial;
 

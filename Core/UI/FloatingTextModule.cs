@@ -1,6 +1,7 @@
 ﻿using Axvemi.Commons.Modules;
 using Godot;
 using System.Collections.Generic;
+using static Axvemi.Commons.UI.FloatingText;
 
 namespace Axvemi.Commons.UI;
 public partial class FloatingTextModule<T> : Node, IModule<T>
@@ -17,7 +18,7 @@ public partial class FloatingTextModule<T> : Node, IModule<T>
 
     public override void _Ready()
     {
-        _floatingTextPrefab = GD.Load<PackedScene>("res://Scenes/Common/floating_text.tscn");
+        _floatingTextPrefab = GD.Load<PackedScene>("res://scenes/common/floating_text.tscn");
     }
 
     public virtual void OnModulesReady()
@@ -44,7 +45,7 @@ public partial class FloatingTextModule<T> : Node, IModule<T>
             FloatingTextCreationData floatingTextCreationData = _creationQueue.Dequeue();
             FloatingText instance = (FloatingText)_floatingTextPrefab.Instantiate();
 
-            AddChild(instance);
+            GetTree().CurrentScene.AddChild(instance);
             instance.Initialize(floatingTextCreationData.Text, floatingTextCreationData.Color, StartingPosition, floatingTextCreationData.FloatingType);
 
             _canCreate = false;

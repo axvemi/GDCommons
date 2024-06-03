@@ -25,18 +25,24 @@ public partial class TooltipNode2D : Node2D
     public override void _Process(double delta)
     {
         base._Process(delta);
+        Visuals.Position = _offset;
+
+        if (FollowMouse)
+        {
+            Visuals.Position = GetViewport().GetMousePosition();
+        }
+
         if (!Visible)
         {
             return;
         }
 
-
-
-        if (!FollowMouse)
+        Vector2 finalPosition = Visuals.GetGlobalTransformWithCanvas().Origin + Visuals.Size;
+        //TODO: This only works if the pivor is on top-left
+        float xExtraAmount = GetViewport().GetVisibleRect().Size.X - finalPosition.X;
+        if (xExtraAmount < 0)
         {
-            return;
+            Visuals.Position = new Vector2(Visuals.Position.X + xExtraAmount, Visuals.Position.Y);
         }
-
-        Visuals.Position = GetViewport().GetMousePosition();
     }
 }
