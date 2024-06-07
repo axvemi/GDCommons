@@ -18,7 +18,7 @@ public partial class FloatingTextModule<T> : Node, IModule<T>
 
     public override void _Ready()
     {
-        _floatingTextPrefab = GD.Load<PackedScene>("res://scenes/common/floating_text.tscn");
+        _floatingTextPrefab = GD.Load<PackedScene>("res://scenes/commons/floating_text.tscn");
     }
 
     public virtual void OnModulesReady()
