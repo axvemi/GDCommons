@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace Axvemi.GDCommons.Features.CardHandDisplay;
+namespace Axvemi.GDCommons;
 
 public interface ITCard
 {

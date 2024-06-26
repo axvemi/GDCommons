@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace Axvemi.Commons.UI;
+namespace Axvemi.Commons;
 
 public partial class FloatingText : RichTextLabel
 {

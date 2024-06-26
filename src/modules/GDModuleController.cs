@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-namespace Axvemi.Commons.Modules;
+namespace Axvemi.Commons;
 
 public partial class GDModuleController<T> : ModuleController<T> where T : Node
 {

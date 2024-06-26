@@ -1,7 +1,7 @@
-using Axvemi.Commons.Modules;
+using Axvemi.Commons;
 using Godot;
 
-namespace Axvemi.GDCommons.Features.CardHandDisplay;
+namespace Axvemi.GDCommons;
 
 public partial class CardHandDisplayPCModule<TCard> : Node, IModule<CardHandDisplayController<TCard>> where TCard : Node2D, ITCard
 {

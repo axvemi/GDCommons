@@ -1,9 +1,8 @@
-﻿using Axvemi.Commons.Modules;
-using Godot;
+﻿using Godot;
 using System.Collections.Generic;
-using static Axvemi.Commons.UI.FloatingText;
+using static Axvemi.Commons.FloatingText;
 
-namespace Axvemi.Commons.UI;
+namespace Axvemi.Commons;
 public partial class FloatingTextModule<T> : Node, IModule<T>
 {
     [Export] public Node2D FloatingTextSpawner { get; private set; }

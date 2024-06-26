@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Axvemi.Commons.Modules;
+namespace Axvemi.Commons;
 
 public partial class OutlineModule<T> : Node, IModule<T>
 {

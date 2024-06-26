@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Axvemi.Commons.Modules;
+using Axvemi.Commons;
 using Godot;
 
-namespace Axvemi.GDCommons.Features.CardHandDisplay;
+namespace Axvemi.GDCommons;
 
 public partial class CardHandDisplayController<TCard> : Node2D where TCard : Node2D
 {
