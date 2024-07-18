@@ -1,51 +1,51 @@
 using Godot;
-using System;
 
 namespace Axvemi.Commons;
 
-public partial class FloatingText : RichTextLabel
+public partial class FloatingText : Node2D
 {
-    public enum FloatingType
+    [Signal] public delegate void FinishedEventHandler(FloatingText floatingText);
+
+    // OnReady
+    public RichTextLabel Text;
+
+    public float Duration { get; protected set; }
+
+    public override void _Ready()
     {
-        Pop = 0,
-        Float = 1
+        base._Ready();
+        Text = GetNode<RichTextLabel>("%Text");
+
+        Visible = false;
     }
 
-    public const float AnimationDuration = 0.5f;
-
-    public void Initialize(string text, Color color, Vector2 startingPosition, FloatingType type)
+    public void Initialize(string text, Color? color = null, float duration = 2)
     {
-        GlobalPosition = startingPosition;
-        string bbColor = $"#{(int)(color.R * 255):X2}{(int)(color.G * 255):X2}{(int)(color.B * 255):X2}";
-        Text = $"[color={bbColor}]{text}";
-
-        switch (type)
-        {
-            case FloatingType.Float:
-                StartFloatEffect();
-                break;
-            case FloatingType.Pop:
-                StartPopEffect();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        Color colorToUse = color ?? Colors.Blue;
+        Text.Text = $"[color={colorToUse.ToHtml()}]{text}";
+        Duration = duration;
     }
 
-    private void StartFloatEffect()
+    //TODO: Switch and enum/int to choose which effect to play
+    public void Play()
     {
-        Vector2 endPosition = GlobalPosition + new Vector2(0, -50);
+        PlayFloatEffect();
+    }
+
+    private void PlayFloatEffect()
+    {
+        Vector2 targetPosition = Position + new Vector2(0, -100);
+
         Tween tween = GetTree().CreateTween();
-
-        tween.TweenProperty(this, "global_position", endPosition, 2.0f);
+        tween.TweenProperty(this, nameof(PropertyName.Position), targetPosition, Duration);
         tween.TweenCallback(new Callable(this, MethodName.QueueFree));
     }
 
-    private void StartPopEffect()
+    /*private void PlayPopEffect()
     {
         Vector2 originalScale = Scale;
         Vector2 targetScale = originalScale * 2.0f;
-        Vector2 endPosition = GlobalPosition + new Vector2(0, -50);
+        Vector2 endPosition = Position + new Vector2(0, -50);
 
         Tween tween = GetTree().CreateTween();
 
@@ -53,5 +53,5 @@ public partial class FloatingText : RichTextLabel
         tween.TweenProperty(this, "scale", originalScale, 0.2f);
         tween.TweenProperty(this, "global_position", endPosition, 1.0f);
         tween.TweenCallback(new Callable(this, MethodName.QueueFree));
-    }
+    }*/
 }

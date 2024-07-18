@@ -1,11 +1,13 @@
+using System;
 using Axvemi.Commons;
 using Godot;
 
-namespace Axvemi.GDCommons;
+namespace Axvemi.GDCommons.CardHandDisplay;
 
-public partial class CardHandDisplayMobileModule<TCard> : Node, IModule<CardHandDisplayController<TCard>> where TCard : Node2D, ITCard
+[Obsolete]
+public partial class CardHandDisplayMobileModule<TData, TCardController> : Node, IModule<CardHandDisplayController<TData, TCardController>> where TCardController : Node2D, ICardHandController<TData>
 {
-    protected const float TapTime = 0.2f;
+    /*protected const float TapTime = 0.2f;
     public ModuleController<CardHandDisplayController<TCard>> ModuleController { get; set; }
     protected CardHandDisplayController<TCard> ModuleOwner => ModuleController.Owner;
 
@@ -85,5 +87,11 @@ public partial class CardHandDisplayMobileModule<TCard> : Node, IModule<CardHand
         {
             ModuleOwner.SelectCard(card);
         }
+    }*/
+    public ModuleController<CardHandDisplayController<TData, TCardController>> ModuleController { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    public void OnModulesReady()
+    {
+        throw new NotImplementedException();
     }
 }
