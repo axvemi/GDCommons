@@ -64,7 +64,7 @@ public partial class CardHandDisplayController<TData, TCardController> : Node2D 
 	public GDModuleController<CardHandDisplayController<TData, TCardController>> ModuleController { get; private set; }
 	public List<TCardController> Cards = new();
 	public FocusedData<TCardController> FocusedData;
-	public bool CanInteract;
+	public bool CanInteract = true;
 
 
 	public override void _Ready()
