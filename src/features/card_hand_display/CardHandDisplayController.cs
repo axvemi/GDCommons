@@ -32,7 +32,7 @@ public partial class CardHandDisplayController<TData, TCardController> : Node2D 
 	protected const float CenterAngle = 90;
 
 	// OnReady
-	public Node2D CardContainer { get; private set; }
+	public Node2D CardContainer { get; protected set; }
 
 
 	[ExportGroup("Hand")]
@@ -94,7 +94,7 @@ public partial class CardHandDisplayController<TData, TCardController> : Node2D 
 		instance.RotationDegrees = cardTargetTransform.RotationDegrees;
 
 		SetDefaultCardTransforms();
-		CardAdded.Invoke(this, new CardAddedEventArgs(instance));
+		CardAdded?.Invoke(this, new CardAddedEventArgs(instance));
 	}
 
 	/// <summary>
