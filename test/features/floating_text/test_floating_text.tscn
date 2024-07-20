@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8gpk5nesc8hj"]
+
+[ext_resource type="Script" path="res://libraries/GDCommons/test/features/floating_text/TestFloatingText.cs" id="1_rstyc"]
+[ext_resource type="PackedScene" uid="uid://ddg8r2b6hd2l5" path="res://libraries/GDCommons/test/features/floating_text/floating_text_test.tscn" id="2_ac4rr"]
+
+[node name="TestFloatingText" type="Node"]
+script = ExtResource("1_rstyc")
+FloatingTextScene = ExtResource("2_ac4rr")
+
+[node name="Spawn" type="Node2D" parent="."]
+position = Vector2(960, 540)

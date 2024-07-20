@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddg8r2b6hd2l5"]
+
+[ext_resource type="Script" path="res://libraries/GDCommons/src/features/floating_text/FloatingText.cs" id="1_fgndd"]
+
+[node name="FloatingText" type="Node2D" node_paths=PackedStringArray("Text")]
+script = ExtResource("1_fgndd")
+Text = NodePath("Text")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_right = 329.0
+offset_bottom = 26.0
+bbcode_enabled = true
+text = "This is a test"

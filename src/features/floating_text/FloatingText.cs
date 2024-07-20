@@ -1,20 +1,18 @@
 using Godot;
 
-namespace Axvemi.Commons;
+namespace Axvemi.GDCommons;
 
 public partial class FloatingText : Node2D
 {
     [Signal] public delegate void FinishedEventHandler(FloatingText floatingText);
 
-    // OnReady
-    public RichTextLabel Text;
+    [Export] public RichTextLabel Text;
 
     public float Duration { get; protected set; }
 
     public override void _Ready()
     {
         base._Ready();
-        Text = GetNode<RichTextLabel>("%Text");
 
         Visible = false;
     }
@@ -29,6 +27,7 @@ public partial class FloatingText : Node2D
     //TODO: Switch and enum/int to choose which effect to play
     public void Play()
     {
+        Visible = true;
         PlayFloatEffect();
     }
 
@@ -37,7 +36,7 @@ public partial class FloatingText : Node2D
         Vector2 targetPosition = Position + new Vector2(0, -100);
 
         Tween tween = GetTree().CreateTween();
-        tween.TweenProperty(this, nameof(PropertyName.Position), targetPosition, Duration);
+        tween.TweenProperty(this, PropertyName.Position.ToString(), targetPosition, Duration);
         tween.TweenCallback(new Callable(this, MethodName.QueueFree));
     }
 

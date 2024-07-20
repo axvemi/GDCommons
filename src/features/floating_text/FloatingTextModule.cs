@@ -1,7 +1,8 @@
-﻿using Godot;
+﻿using Axvemi.Commons;
+using Godot;
 using System.Collections.Generic;
 
-namespace Axvemi.Commons;
+namespace Axvemi.GDCommons;
 public partial class FloatingTextModule<T> : Node, IModule<T>
 {
     public ModuleController<T> ModuleController { get; set; }
