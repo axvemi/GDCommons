@@ -24,13 +24,13 @@ public partial class FloatingTextModule<T> : Node, IModule<T>
     public override void _Process(double delta)
     {
         base._Process(delta);
-        if (Queue.Count == 0)
-        {
-            return;
-        }
         if (_remainingTime >= 0)
         {
             _remainingTime -= (float)delta;
+            return;
+        }
+        if (Queue.Count == 0)
+        {
             return;
         }
 
