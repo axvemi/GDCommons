@@ -5,4 +5,5 @@ public interface ICardHandController<TData>
 {
     public void Initialize(TData data);
     public Control GetControl();
+    public Vector2 GetSize();
 }
