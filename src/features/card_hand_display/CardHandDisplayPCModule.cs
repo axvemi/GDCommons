@@ -12,7 +12,7 @@ public partial class CardHandDisplayPCModule<TData, TCardController> : Node, IMo
     /// <summary>
     /// Amount to move in the Y axis when it's focused
     /// </summary>
-    [Export] private int FocusMoveYAmount = -250;
+    [Export] private int FocusMoveYAmount;
 
     public ModuleController<CardHandDisplayController<TData, TCardController>> ModuleController { get; set; }
     public CardHandDisplayController<TData, TCardController> ModuleOwner => ModuleController.Owner;
@@ -49,7 +49,7 @@ public partial class CardHandDisplayPCModule<TData, TCardController> : Node, IMo
         Tween tween = GetTree().CreateTween();
         //Vector2 tweenTargetPosition = ModuleOwner.GetTransformForIndex(cardController.GetIndex()).Position + new Vector2(0, FocusMoveYAmount);
         Vector2 tweenTargetPosition = ModuleOwner.GetTransformForIndex(cardController.GetIndex()).Position;
-        tweenTargetPosition.Y = -cardController.GetSize().Y * FocusScale / 2;
+        tweenTargetPosition.Y = (-cardController.GetSize().Y * FocusScale / 2) + FocusMoveYAmount;
         tween.TweenProperty(cardController, Node2D.PropertyName.Position.ToString(), tweenTargetPosition, 0.1f);
         tween.Parallel().TweenProperty(cardController, Node2D.PropertyName.Scale.ToString(), new Vector2(FocusScale, FocusScale), 0.1f);
         tween.Parallel().TweenProperty(cardController, Node2D.PropertyName.RotationDegrees.ToString(), 0, 0.1f);
