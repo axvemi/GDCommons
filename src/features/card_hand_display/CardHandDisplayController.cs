@@ -79,7 +79,7 @@ public partial class CardHandDisplayController<TData, TCardController> : Node2D 
     /// Adds a new card controller to the hand
     /// </summary>
     /// <param name="data">Data of the card</param>
-    public void AddCard(TData data)
+    public virtual void AddCard(TData data)
     {
         var instance = CardControllerPrefab.Instantiate() as TCardController;
         CardContainer.AddChild(instance);
